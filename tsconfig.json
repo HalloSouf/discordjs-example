@@ -1,0 +1,29 @@
+{
+  // Mapped from: https://www.typescriptlang.org/tsconfig
+  "compilerOptions": {
+    // Type Checking
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "strict": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedParameters": true,
+
+    // Language and Environment
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "lib": ["ESNext", "ES2022"],
+    "target": "ES2022",
+    "useDefineForClassFields": true,
+
+    // Modules
+    "baseUrl": ".",
+    
+    // Emit
+    "forceConsistentCasingInFileNames": true,
+    "noEmitHelpers": true,
+    "importsNotUsedAsValues": "error",
+    "importHelpers": true
+  }
+}

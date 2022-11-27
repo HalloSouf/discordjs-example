@@ -1,0 +1,12 @@
+# Dependencies
+node_modules/
+
+# Production
+build/
+
+# Misc
+.vscode/
+.idea/
+.fleet/
+
+yarn-error.log
