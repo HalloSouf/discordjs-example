@@ -20,6 +20,7 @@
     // Modules
     "baseUrl": ".",
     "rootDir": "./src",
+    "moduleResolution": "Node",
     
     // Emit
     "noEmitHelpers": true,
