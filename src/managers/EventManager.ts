@@ -16,11 +16,11 @@ class EventManager {
       const event: IEvent = new eventInstance.default;
 
       if (event.props.once) {
-        this.client.once(event.props.name, (...args) => event.execute(...args));
+        this.client.once(event.props.name, (...args) => event.execute(this.client, ...args));
         return;
       }
 
-      this.client.on(event.props.name, (...args) => event.execute(...args));
+      this.client.on(event.props.name, (...args) => event.execute(this.client, ...args));
     });
   }
 }

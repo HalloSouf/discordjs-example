@@ -5,6 +5,7 @@ export interface IConfig {
   intents: BitFieldResolvable<GatewayIntentsString, number>;
   environment: string;
   restVersion: '10' | '9';
+  mainColor: number;
 }
 
 export interface IEvent {
@@ -19,5 +20,5 @@ export interface ICommand {
 
 export interface IEventBaseProps {
   name: string;
-  once: boolean;
+  once?: boolean;
 }

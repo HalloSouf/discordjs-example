@@ -13,6 +13,14 @@ class CommandManager {
   }
 
   /**
+   * Get command instance
+   * @param name Command name
+   */
+  public get(name: string): ICommand | undefined {
+    return this.commands.get(name);
+  }
+
+  /**
    * Get all registered commands
    */
   public get all(): Collection<string, ICommand> {

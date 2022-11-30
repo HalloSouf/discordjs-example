@@ -1,4 +1,7 @@
 import { SlashCommandBuilder } from '@discordjs/builders';
+import type { CacheType, ChatInputCommandInteraction } from 'discord.js';
+import type HalloClient from '../../client/HalloClient';
+import config from '../../config/config';
 import CommandBase from '../../utils/CommandBase';
 
 class Ping extends CommandBase {
@@ -12,9 +15,17 @@ class Ping extends CommandBase {
 
   /**
    * Execute command
+   * @param client 
+   * @param interaction 
    */
-  public execute(): void {
-    console.log('Ping!');
+  public execute(client: HalloClient, interaction: ChatInputCommandInteraction<CacheType>): void {
+    interaction.reply({
+      embeds: [{
+        color: config.mainColor,
+        title: 'Pong!',
+        description: `🏓 It took **${client.ws.ping}ms** to respond to your command!`
+      }]
+    });
   }
 }
 
