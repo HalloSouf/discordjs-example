@@ -1,7 +1,7 @@
 import { readdirSync } from 'node:fs';
 import { join } from 'node:path';
-import type HalloClient from 'src/client/HalloClient';
-import type { IEventBase } from 'src/types/utils.interface';
+import type HalloClient from '../client/HalloClient';
+import type { IEventBase } from '../types/utils.interface';
 
 class EventHandler {
   public client: HalloClient;
