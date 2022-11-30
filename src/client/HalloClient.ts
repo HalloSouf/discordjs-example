@@ -1,11 +1,15 @@
 import { Client, ClientOptions } from 'discord.js';
+import { join } from 'node:path';
+import EventHandler from '../utils/EventHandler';
 import Logger from '../utils/Logger';
 
 class HalloClient extends Client {
-  private logger: Logger = new Logger('Client');
+  public logger: Logger = new Logger('Client');
 
   constructor(options: ClientOptions) {
     super(options);
+
+    this.init();
   }
 
   /**
@@ -19,7 +23,14 @@ class HalloClient extends Client {
     } catch (e: unknown) {
       this.logger.error(`Error while initializing client: ${e}`);
     }
-  } 
+  }
+
+  /**
+   * Initialise client modules
+   */
+  private init(): void {
+    new EventHandler(this, join(__dirname, './events/')).load();
+  }
 }
 
 export default HalloClient;
