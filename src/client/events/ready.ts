@@ -11,6 +11,8 @@ class Ready extends EventBase {
    * @param client
    */
   public execute(client: HalloClient): void {
+    client.restApi.registerSlashCommands();
+
     client.logger.info(`${client.user?.tag} is online!`);
   }
 }

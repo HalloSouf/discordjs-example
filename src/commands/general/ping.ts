@@ -6,6 +6,7 @@ class Ping extends CommandBase {
     super(
       new SlashCommandBuilder()
         .setName('ping')
+        .setDescription('Pong!')
     );
   }
 

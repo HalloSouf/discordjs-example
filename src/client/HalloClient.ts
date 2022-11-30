@@ -1,16 +1,18 @@
-import { Client, ClientOptions, Collection } from 'discord.js';
+import { Client, ClientOptions } from 'discord.js';
 import { join } from 'node:path';
-import CommandHandler from '../utils/CommandHandler';
-import EventHandler from '../utils/EventHandler';
+import CommandManager from '../managers/CommandManager';
+import EventManager from '../managers/EventManager';
+import RestManager from '../managers/RestManager';
 import Logger from '../utils/Logger';
 
 class HalloClient extends Client {
   public logger: Logger = new Logger('Client');
-  public commands: Collection<string, unknown> = new Collection();
+  public commands: CommandManager = new CommandManager(this);
+  public events: EventManager = new EventManager(this);
+  public restApi: RestManager = new RestManager(this);
 
   constructor(options: ClientOptions) {
     super(options);
-
     this.init();
   }
 
@@ -31,8 +33,8 @@ class HalloClient extends Client {
    * Initialise client modules
    */
   private init(): void {
-    new CommandHandler(this, join(__dirname, '../commands/')).load();
-    new EventHandler(this, join(__dirname, './events/')).load();
+    this.commands.load(join(__dirname, '../commands/'));
+    this.events.load(join(__dirname, './events/'));
   }
 }
 
